@@ -1,3 +1,17 @@
+# chiffre un fichier
+cipher(){
+    openssl enc -e -aes-256-cbc -in "${1}" -out "${1}.lock" -pass "pass:${DIARY_KEY}"
+    rm "${1}"
+}
+
+decipher(){
+    openssl enc -d -aes-256-cbc -in "${1}.lock" -out "${1}" -pass "pass:${DIARY_KEY}"
+    cat "${1}"
+    rm "${1}"
+}
+
+
+# Ajoute une nouvelle ligne dans le journal du jour
 diary.n(){
     today="${DIARY_DIR}/$(date.Ymd)"
     echo "$(date.H_M_S);${1};${2}" >> "${today}"
