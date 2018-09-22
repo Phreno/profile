@@ -1,0 +1,3 @@
+alias date.Ymd='date +%Y%m%d'
+alias date.Y_m_d='date +%Y-%m-%d'
+alias date.H_M_S='date +%H:%M:%S'

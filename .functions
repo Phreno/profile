@@ -1,0 +1,5 @@
+diary.n(){
+    today="${DIARY_DIR}/$(date.Ymd)"
+    echo "$(date.H_M_S);${1};${2}" >> "${today}"
+    cat "${today}" | tail
+}
