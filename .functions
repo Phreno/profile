@@ -18,7 +18,7 @@ diary.get_today_path(){
     echo "${DIARY_DIR}/$(date.Ymd)"
 }
 
-# affiche un journal
+# affiche la journal sous forme de dsv
 diary.display(){
     file="${1:?}"
     diary.decipher "${1}"
@@ -26,12 +26,26 @@ diary.display(){
     diary.cipher "${1}"
 }
 
+
+# affiche tous les journaux
+diary.raw_history(){
+    for file in $(find "${DIARY_DIR}" -type f);
+    do
+        diary.display "${file%.lock}"
+    done
+}
+
+#  affiche le journal
+diary.history(){
+    diary.raw_history | column -t -s ";"
+}
+
 # Ajoute une nouvelle ligne dans le journal du jour
 diary.new(){
     today="$(diary.get_today_path)"
     diary.decipher "${today}"
-    echo "$(date.H_M_S);${1};${2}" >> "${today}"
-    cat "${today}"
+    echo "$(date.Y_m_d);$(date.H_M_S);${1};${2}" >> "${today}"
+    cat "${today}" | column -t -s ";"
     diary.cipher "${today}"
 }
 
