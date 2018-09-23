@@ -1,14 +1,16 @@
 # chiffre un fichier du journal
 diary.cipher(){
-    openssl enc -e -aes-256-cbc -in "${1}" -out "${1}.lock" -pass "pass:${DIARY_KEY}"
-    rm "${1}"
+    file="${1:?}"
+    openssl enc -e -aes-256-cbc -in "${file}${UNLOCKED}" -out "${file}${LOCKED}" -pass "pass:${DIARY_KEY}"
+    rm "${file}${UNLOCKED}"
 }
 
 # déchiffre un fichier du journal
 diary.decipher(){
-    if [ -f "${1}.lock" ]
+    file="${1:?}"
+    if [ -f "${file}${LOCKED}" ]
     then
-        openssl enc -d -aes-256-cbc -in "${1}.lock" -out "${1}" -pass "pass:${DIARY_KEY}"
+        openssl enc -d -aes-256-cbc -in "${file}${LOCKED}" -out "${file}${UNLOCKED}" -pass "pass:${DIARY_KEY}"
     fi
     # TODO: le fichier n existe pas
 }
@@ -21,9 +23,9 @@ diary.get_today_path(){
 # affiche la journal sous forme de dsv
 diary.display(){
     file="${1:?}"
-    diary.decipher "${1}"
-    cat "${1}"
-    diary.cipher "${1}"
+    diary.decipher "${file}"
+    cat "${file}${UNLOCKED}"
+    diary.cipher "${file}"
 }
 
 
@@ -31,7 +33,7 @@ diary.display(){
 diary.raw_history(){
     for file in $(find "${DIARY_DIR}" -type f);
     do
-        diary.display "${file%.lock}"
+        diary.display "${file%${LOCKED}}"
     done
 }
 
@@ -44,8 +46,8 @@ diary.history(){
 diary.new(){
     today="$(diary.get_today_path)"
     diary.decipher "${today}"
-    echo "$(date.Y_m_d);$(date.H_M_S);${1};${2}" >> "${today}"
-    cat "${today}" | column -t -s ";"
+    echo "$(date.Y_m_d);$(date.H_M_S);${1};${2}" >> "${today}${UNLOCKED}"
+    cat "${today}${UNLOCKED}" | column -t -s ";"
     diary.cipher "${today}"
 }
 
