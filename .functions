@@ -46,7 +46,7 @@ diary.history(){
 diary.new(){
     today="$(diary.get_today_path)"
     diary.decipher "${today}"
-    echo "$(date.Y_m_d);$(date.H_M_S);${1};${2}" >> "${today}${UNLOCKED}"
+    echo "$(date.Y_m_d);$(date.H_M_S);#${1// / #};${2}" >> "${today}${UNLOCKED}"
     cat "${today}${UNLOCKED}" | column -t -s ";"
     diary.cipher "${today}"
 }

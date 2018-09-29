@@ -1,3 +1,13 @@
 alias date.Ymd='date +%Y%m%d'
 alias date.Y_m_d='date +%Y-%m-%d'
 alias date.H_M_S='date +%H:%M:%S'
+
+
+alias @humeur='diary.new humeur'
+alias @idée='diary.new idée'
+alias @reflexion='diary.new reflexion'
+alias @recherche='diary.new recherche'
+alias @développement='diary.new développement'
+alias @création='diary.new création'
+alias @réussite='diary.new réussite'
+alias @échec='diary.new échec'
