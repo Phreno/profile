@@ -1,7 +1,38 @@
-alias date.Ymd='date +%Y%m%d'
-alias date.Y_m_d='date +%Y-%m-%d'
-alias date.H_M_S='date +%H:%M:%S'
+# 
+#  ____             __ _ _      
+# |  _ \ _ __ ___  / _(_) | ___ 
+# | |_) | '__/ _ \| |_| | |/ _ \
+# |  __/| | | (_) |  _| | |  __/
+# |_|   |_|  \___/|_| |_|_|\___|
+#                               
+# 
 
+alias sp='source "${MAIN_PROFILE}"'
+alias vp='vim "${MAIN_PROFILE}" && sp'
+alias va='vim "${MAIN_ALIASES}" && sp'
+alias vf='vim "${MAIN_FUNCTIONS}" && sp'
+
+# 
+#  ____                 _                                  _   
+# |  _ \  _____   _____| | ___  _ __  _ __ ___   ___ _ __ | |_ 
+# | | | |/ _ \ \ / / _ \ |/ _ \| '_ \| '_ ` _ \ / _ \ '_ \| __|
+# | |_| |  __/\ V /  __/ | (_) | |_) | | | | | |  __/ | | | |_ 
+# |____/ \___| \_/ \___|_|\___/| .__/|_| |_| |_|\___|_| |_|\__|
+#                              |_|                             
+# 
+
+alias _.downloadReadmeTemplate='wget "${README_TEMPLATE}"'
+
+#
+#  ____  _                  
+# |  _ \(_) __ _ _ __ _   _ 
+# | | | | |/ _` | '__| | | |
+# | |_| | | (_| | |  | |_| |
+# |____/|_|\__,_|_|   \__, |
+#                     |___/ 
+#
+
+alias diary.vf='vim ${MEGA}/.diary${FUNCTIONS}'
 
 alias @humeur='diary.new humeur'
 alias @idée='diary.new idée'
@@ -11,3 +42,18 @@ alias @développement='diary.new développement'
 alias @création='diary.new création'
 alias @réussite='diary.new réussite'
 alias @échec='diary.new échec'
+
+# 
+#  ____        _       
+# |  _ \  __ _| |_ ___ 
+# | | | |/ _` | __/ _ \
+# | |_| | (_| | ||  __/
+# |____/ \__,_|\__\___|
+#                      
+# 
+
+alias date.Ymd='date +%Y%m%d'
+alias date.Y_m_d='date +%Y-%m-%d'
+alias date.H_M_S='date +%H:%M:%S'
+
+
