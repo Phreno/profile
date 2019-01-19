@@ -40,7 +40,7 @@ diary.display(){
 
 # affiche tous les journaux
 diary.raw_history(){
-    for file in $(find "${DIARY_DIR}" -type f);
+    for file in $(find "${DIARY_DIR}" -type f -name "*${LOCKED}");
     do
         diary.display "${file%${LOCKED}}"
     done
@@ -55,13 +55,25 @@ diary.history(){
 diary.new(){
     today="$(diary.get_today_path)"
     diary.decipher "${today}"
-    echo "$(date.Y_m_d);$(date.H_M_S);#${1// / #};${2}" >> "${today}${UNLOCKED}"
-    cat "${today}${UNLOCKED}" | column -t -s ";"
+    echo "$(date.Y_m_d);$(date.H_M);#${1// / #};${2}" >> "${today}${UNLOCKED}"
+    cat "${today}${UNLOCKED}" | column -t -s ";" | sort -r
     diary.cipher "${today}"
+}
+
+
+# Affiche le journal du jour
+diary.today_raw(){
+    today="${DIARY_DIR}/$(date.Ymd)"
+    diary.display "${today}"
 }
 
 # Affiche le journal du jour
 diary.today(){
-    today="${DIARY_DIR}/$(date.Ymd)"
-    diary.display "${today}" 
+    diary.today_raw | column -t -s ";" | sort -r
+}
+
+# Filtre les seules entrées correspondant au tag fourni en paramètre
+diary.filterTag(){
+  tag="${1:?}"
+  diary.history | egrep "#${tag}"
 }

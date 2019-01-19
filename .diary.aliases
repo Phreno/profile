@@ -1,0 +1,28 @@
+#
+#  ____  _                  
+# |  _ \(_) __ _ _ __ _   _ 
+# | | | | |/ _` | '__| | | |
+# | |_| | | (_| | |  | |_| |
+# |____/|_|\__,_|_|   \__, |
+#                     |___/ 
+#
+
+alias diary.va='vim ${MEGA}/.diary${ALIASES} && sp'
+alias diary.vf='vim ${MEGA}/.diary${FUNCTIONS} && sp'
+
+alias @='diary.today'
+alias @@='diary.history'
+alias @^='diary.new'
+alias @¿='@@ | egrep'
+alias @€='diary.filterTag'
+
+alias @~='lireDonnéesCSV diary.today_raw'
+
+alias @humeur='diary.new humeur'
+alias @idée='diary.new idée'
+alias @reflexion='diary.new reflexion'
+alias @recherche='diary.new recherche'
+alias @développement='diary.new développement'
+alias @création='diary.new création'
+alias @réussite='diary.new réussite'
+alias @échec='diary.new échec'
