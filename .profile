@@ -49,6 +49,8 @@ MAIN_FUNCTIONS="${MEGA}/${FUNCTIONS}"
 # 
 
 README_TEMPLATE="https://raw.githubusercontent.com/Phreno/template/master/adoc/template.adoc"
+REPOSITORIES="/home/phreno/Dépôts"
+SANDBOX="${REPOSITORIES}/sandbox"
 
 source "${MAIN_ALIASES}"
 source "${MAIN_FUNCTIONS}"

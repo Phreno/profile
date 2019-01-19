@@ -7,6 +7,7 @@
 #                               
 # 
 
+alias cm='cd "${MEGA}"'
 alias sp='source "${MAIN_PROFILE}"'
 alias vp='vim "${MAIN_PROFILE}" && sp'
 alias va='vim "${MAIN_ALIASES}" && sp'
@@ -18,10 +19,11 @@ alias vf='vim "${MAIN_FUNCTIONS}" && sp'
 # | | | |/ _ \ \ / / _ \ |/ _ \| '_ \| '_ ` _ \ / _ \ '_ \| __|
 # | |_| |  __/\ V /  __/ | (_) | |_) | | | | | |  __/ | | | |_ 
 # |____/ \___| \_/ \___|_|\___/| .__/|_| |_| |_|\___|_| |_|\__|
-#                              |_|                             
+#                               |_|                             
 # 
 
-alias _.downloadReadmeTemplate='wget "${README_TEMPLATE}"'
+alias d.downloadReadmeTemplate='wget "${README_TEMPLATE}"'
+alias d.cr='cd "${REPOSITORIES}"'
 
 #
 #  ____  _                  
@@ -55,5 +57,3 @@ alias @échec='diary.new échec'
 alias date.Ymd='date +%Y%m%d'
 alias date.Y_m_d='date +%Y-%m-%d'
 alias date.H_M_S='date +%H:%M:%S'
-
-
