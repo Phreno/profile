@@ -12,7 +12,7 @@ alias sp='source "${MAIN_PROFILE}"'
 alias vp='vim "${MAIN_PROFILE}" && sp'
 alias va='vim "${MAIN_ALIASES}" && sp'
 alias vf='vim "${MAIN_FUNCTIONS}" && sp'
-
+alias vg='vim "${MAIN_DIR}/.gitignore"'
 # 
 #  ____                 _                                  _   
 # |  _ \  _____   _____| | ___  _ __  _ __ ___   ___ _ __ | |_ 
