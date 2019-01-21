@@ -20,7 +20,10 @@ UNLOCKED=".unlocked"
 #
 
 MEGA=~/MEGA
-DIARY_DIR=~/MEGA/diary
+MAIN_DIR="${MEGA}"
+ASCII_ART_DIR="${MAIN_DIR}/asciiart"
+FACIAL_EXPRESSION="${MAIN_DIR}/pictures/facial_expressions"
+DIARY_DIR="${MAIN_DIR}/diary"
 
 # 
 #  ____             __ _ _      
@@ -35,9 +38,9 @@ ALIASES=".aliases"
 PROFILE=".profile"
 FUNCTIONS=".functions"
 
-MAIN_PROFILE="${MEGA}/${PROFILE}"
-MAIN_ALIASES="${MEGA}/${ALIASES}"
-MAIN_FUNCTIONS="${MEGA}/${FUNCTIONS}"
+MAIN_PROFILE="${MAIN_DIR}/${PROFILE}"
+MAIN_ALIASES="${MAIN_DIR}/${ALIASES}"
+MAIN_FUNCTIONS="${MAIN_DIR}/${FUNCTIONS}"
 
 # 
 #  ____                 _                                  _   

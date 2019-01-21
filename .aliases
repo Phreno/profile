@@ -7,7 +7,7 @@
 #                               
 # 
 
-alias cm='cd "${MEGA}"'
+alias cm='cd "${MAIN_DIR}"'
 alias sp='source "${MAIN_PROFILE}"'
 alias vp='vim "${MAIN_PROFILE}" && sp'
 alias va='vim "${MAIN_ALIASES}" && sp'
@@ -39,6 +39,51 @@ alias date.Y_m_d='date +%Y-%m-%d'
 alias date.H_M_S='date +%H:%M:%S'
 alias date.H_M='date +%H:%M'
 
+
+
+# 
+#  _____          _       _   _____                              _             
+# |  ___|_ _  ___(_) __ _| | | ____|_  ___ __  _ __ ___  ___ ___(_) ___  _ __  
+# | |_ / _` |/ __| |/ _` | | |  _| \ \/ / '_ \| '__/ _ \/ __/ __| |/ _ \| '_ \ 
+# |  _| (_| | (__| | (_| | | | |___ >  <| |_) | | |  __/\__ \__ \ | (_) | | | |
+# |_|  \__,_|\___|_|\__,_|_| |_____/_/\_\ .__/|_|  \___||___/___/_|\___/|_| |_|
+#                                       |_|                                    
+# 
+
+alias φrobot='cat "${ASCII_ART_DIR}/robot-face.asciiart"'
+alias φsmile='cat "${ASCII_ART_DIR}/smile-with-tongue.asciiart"'
+
+alias φterminator='jp2a "${FACIAL_EXPRESSION}/terminator01-neutral.jpg"'
+alias φterminator.neutral='jp2a "${FACIAL_EXPRESSION}/terminator01-neutral.jpg"'
+
+alias φwoman01='jp2a "${FACIAL_EXPRESSION}/woman01-neutral.jpg"'
+alias φwoman01.neutral='jp2a "${FACIAL_EXPRESSION}/woman01-neutral.jpg"'
+alias φwoman01.anger='jp2a "${FACIAL_EXPRESSION}/woman01-anger.jpg"'
+alias φwoman01.happy='jp2a "${FACIAL_EXPRESSION}/woman01-happy.jpg"'
+alias φwoman01.sad='jp2a "${FACIAL_EXPRESSION}/woman01-sad.jpg"'
+
+alias φwoman02='jp2a "${FACIAL_EXPRESSION}/woman02-neutral.jpg"'
+alias φwoman02.neutral='jp2a "${FACIAL_EXPRESSION}/woman02-neutral.jpg"'
+alias φwoman02.anger='jp2a "${FACIAL_EXPRESSION}/woman02-anger.jpg"'
+alias φwoman02.happy='jp2a "${FACIAL_EXPRESSION}/woman02-happy.jpg"'
+alias φwoman02.sad='jp2a "${FACIAL_EXPRESSION}/woman02-sad.jpg"'
+
+
+# 
+#  ____                       _     
+# / ___| _ __   ___  ___  ___| |__  
+# \___ \| '_ \ / _ \/ _ \/ __| '_ \ 
+#  ___) | |_) |  __/  __/ (__| | | |
+# |____/| .__/ \___|\___|\___|_| |_|
+#       |_|                         
+# 
+
+alias σfortune='φwoman02 && ξfr "$(fortune -s | sed "s/-+-/. /g; s/--/. /g")"'
+alias σlire='φwoman02 && ξfr'
+alias σlireCSV='φwoman02 && ξfr.CSV'
+alias σread='φwoman01 && ξen'
+alias σtcidu='φrobot && ξjbo'
+
 # 
 #  ____                       _             
 # / ___|  ___  _   _ _ __ ___(_)_ __   __ _ 
@@ -54,4 +99,4 @@ alias date.H_M='date +%H:%M'
 #            |_|                                                 
 # 
 
-source "${MEGA}/.diary${ALIASES}"
+source "${MAIN_DIR}/.diary${ALIASES}"

@@ -16,9 +16,10 @@ alias @^='diary.new'
 alias @¿='@@ | egrep'
 alias @€='diary.filterTag'
 
-alias @~='lireDonnéesCSV diary.today_raw'
+alias @~='σlireCSV diary.today_raw'
 
 alias @humeur='diary.new humeur'
+alias @satisfaction='diary.new humeur:satisfaction'
 alias @dépression='diary.new humeur:dépression'
 alias @idée='diary.new idée'
 alias @reflexion='diary.new reflexion'

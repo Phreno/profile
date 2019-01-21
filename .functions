@@ -9,7 +9,7 @@
 #                                   |_|                         
 # 
 
-lire(){
+ξfr(){
   text="${1?"pas de texte en entrée"}"
   speach="$(mktemp /tmp/output.XXXXXXXXXX).wav" 1>&- 2>&-
   pico2wave -w "${speach}" -l fr-FR "${text}" 1>&- 2>&-
@@ -17,11 +17,22 @@ lire(){
   rm "${speach}" 
 }
 
-lireDonnéesCSV(){
+ξfr.CSV(){
   csv="${1:?"pas de texte en entrée"}"
-  lire "$("${csv}" | sed "s/$/;/; s/;/;. /g" | column -s ";" -t)"
+  ξfr "$("${csv}" | sed "s/$/;/; s/;/;. /g" | column -s ";" -t)"
 }
-tcidu(){
+
+
+
+ξen(){
+  text="${1?"pas de texte en entrée"}"
+  speach="$(mktemp /tmp/output.XXXXXXXXXX).wav" 1>&- 2>&-
+  pico2wave -w "${speach}" "${text}" 1>&- 2>&-
+  play "${speach}" 1>&- 2>&-
+  rm "${speach}" 
+}
+
+ξjbo(){
   text="${1?"pas de texte en entrée"}"
   speach="$(mktemp /tmp/output.XXXXXXXXXX).wav" 1>&- 2>&-
   #pico2wave -w "${speach}" -l fr-FR "${text}" 1>&- 2>&-
@@ -45,4 +56,4 @@ tcidu(){
 #  \__,_|\___| .__/ \___|_| |_|\__,_|\___|_| |_|\___|_|\___||___/
 #            |_|                                                 
 # 
-source "${MEGA}/.diary${FUNCTIONS}"
+source "${MAIN_DIR}/.diary${FUNCTIONS}"
