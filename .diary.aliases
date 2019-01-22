@@ -7,8 +7,8 @@
 #                     |___/ 
 #
 
-alias diary.va='vim ${MEGA}/.diary${ALIASES} && sp'
-alias diary.vf='vim ${MEGA}/.diary${FUNCTIONS} && sp'
+alias diary.va='vim ${MAIN_DIR}/.diary${ALIASES} && sp'
+alias diary.vf='vim ${MAIN_DIR}/.diary${FUNCTIONS} && sp'
 
 alias @='diary.today'
 alias @@='diary.history'
