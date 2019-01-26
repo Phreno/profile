@@ -9,10 +9,11 @@
 
 alias cm='cd "${MAIN_DIR}"'
 alias smp='source "${MAIN_PROFILE}"'
-alias vmp='vim "${MAIN_PROFILE}" && sp'
-alias vma='vim "${MAIN_ALIASES}" && sp'
-alias vmf='vim "${MAIN_FUNCTIONS}" && sp'
+alias vmp='vim "${MAIN_PROFILE}" && smp'
+alias vma='vim "${MAIN_ALIASES}" && smp'
+alias vmf='vim "${MAIN_FUNCTIONS}" && smp'
 alias vmg='vim "${MAIN_DIR}/.gitignore"'
+
 # 
 #  ____            _                                                      _     
 # | __ )  __ _ ___(_) ___    ___ ___  _ __ ___  _ __ ___   __ _ _ __   __| |___ 
@@ -50,8 +51,6 @@ alias date.Y_m_d='date +%Y-%m-%d'
 alias date.H_M_S='date +%H:%M:%S'
 alias date.H_M='date +%H:%M'
 
-
-
 # 
 #  _____          _       _   _____                              _             
 # |  ___|_ _  ___(_) __ _| | | ____|_  ___ __  _ __ ___  ___ ___(_) ___  _ __  
@@ -78,7 +77,6 @@ alias φwoman02.neutral='jp2a "${FACIAL_EXPRESSION}/woman02-neutral.jpg"'
 alias φwoman02.anger='jp2a "${FACIAL_EXPRESSION}/woman02-anger.jpg"'
 alias φwoman02.happy='jp2a "${FACIAL_EXPRESSION}/woman02-happy.jpg"'
 alias φwoman02.sad='jp2a "${FACIAL_EXPRESSION}/woman02-sad.jpg"'
-
 
 # 
 #  ____                       _     

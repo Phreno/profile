@@ -1,0 +1,38 @@
+# 
+#  _____         _     ____    ____                       _     
+# |_   _|____  _| |_  |___ \  / ___| _ __   ___  ___  ___| |__  
+#   | |/ _ \ \/ / __|   __) | \___ \| '_ \ / _ \/ _ \/ __| '_ \ 
+#   | |  __/>  <| |_   / __/   ___) | |_) |  __/  __/ (__| | | |
+#   |_|\___/_/\_\\__| |_____| |____/| .__/ \___|\___|\___|_| |_|
+#                                   |_|                         
+# 
+
+ξfr(){
+  text="${1?"pas de texte en entrée"}"
+  speach="$(mktemp /tmp/output.XXXXXXXXXX).wav" 1>&- 2>&-
+  pico2wave -w "${speach}" -l fr-FR "${text}" 1>&- 2>&-
+  play "${speach}" 1>&- 2>&-
+  rm "${speach}" 
+}
+
+ξfr.CSV(){
+  csv="${1:?"pas de texte en entrée"}"
+  ξfr "$("${csv}" | sed "s/$/;/; s/;/;. /g" | column -s ";" -t)"
+}
+
+ξen(){
+  text="${1?"pas de texte en entrée"}"
+  speach="$(mktemp /tmp/output.XXXXXXXXXX).wav" 1>&- 2>&-
+  pico2wave -w "${speach}" "${text}" 1>&- 2>&-
+  play "${speach}" 1>&- 2>&-
+  rm "${speach}" 
+}
+
+ξjbo(){
+  text="${1?"pas de texte en entrée"}"
+  speach="$(mktemp /tmp/output.XXXXXXXXXX).wav" 1>&- 2>&-
+  #pico2wave -w "${speach}" -l fr-FR "${text}" 1>&- 2>&-
+  espeak -v jbo "${text}" -w "${speach}"
+  play "${speach}" 1>&- 2>&-
+  rm "${speach}" 
+}

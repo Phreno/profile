@@ -1,46 +1,39 @@
-
-
 # 
-#  _____         _     ____    ____                       _     
-# |_   _|____  _| |_  |___ \  / ___| _ __   ___  ___  ___| |__  
-#   | |/ _ \ \/ / __|   __) | \___ \| '_ \ / _ \/ _ \/ __| '_ \ 
-#   | |  __/>  <| |_   / __/   ___) | |_) |  __/  __/ (__| | | |
-#   |_|\___/_/\_\\__| |_____| |____/| .__/ \___|\___|\___|_| |_|
-#                                   |_|                         
+# __        ___ _    _                _ _       
+# \ \      / (_) | _(_)_ __   ___  __| (_) __ _ 
+#  \ \ /\ / /| | |/ / | '_ \ / _ \/ _` | |/ _` |
+#   \ V  V / | |   <| | |_) |  __/ (_| | | (_| |
+#    \_/\_/  |_|_|\_\_| .__/ \___|\__,_|_|\__,_|
+#                     |_|                       
 # 
 
-ξfr(){
-  text="${1?"pas de texte en entrée"}"
-  speach="$(mktemp /tmp/output.XXXXXXXXXX).wav" 1>&- 2>&-
-  pico2wave -w "${speach}" -l fr-FR "${text}" 1>&- 2>&-
-  play "${speach}" 1>&- 2>&-
-  rm "${speach}" 
+ωopenSearch(){
+  search="${1?"Pas de terme à rechercher"}"
+  language="${2:="fr"}"
+  wget "https://${language}.wikipedia.org/w/api.php?action=opensearch&search=${search}" -q -O - | jsonlint
 }
 
-ξfr.CSV(){
-  csv="${1:?"pas de texte en entrée"}"
-  ξfr "$("${csv}" | sed "s/$/;/; s/;/;. /g" | column -s ";" -t)"
+# 
+#   ____ _           _          
+#  / ___| | ___  ___| |__   ___ 
+# | |  _| |/ _ \/ __| '_ \ / _ \
+# | |_| | | (_) \__ \ |_) |  __/
+#  \____|_|\___/|___/_.__/ \___|
+#                               
+
+γtranslate(){
+  text="${1?"Pas de texte en entrée"}"
+  from="${2:="fr"}"
+  dest="${3:="eng"}"
+  wget "https://glosbe.com/gapi/translate?from=${from}&dest=${dest}&format=json&phrase=${text}&pretty=true" -q -O - | jsonlint
 }
 
-
-
-ξen(){
-  text="${1?"pas de texte en entrée"}"
-  speach="$(mktemp /tmp/output.XXXXXXXXXX).wav" 1>&- 2>&-
-  pico2wave -w "${speach}" "${text}" 1>&- 2>&-
-  play "${speach}" 1>&- 2>&-
-  rm "${speach}" 
+γtranslationManager(){
+  text="${1?"Pas de texte en entrée"}"
+  from="${2:="fr"}"
+  dest="${3:="eng"}"
+  wget "https://glosbe.com/gapi/tm?from=${from}&dest=${dest}&format=json&phrase=${text}&page=1&pretty=true" -q -O - | jsonlint
 }
-
-ξjbo(){
-  text="${1?"pas de texte en entrée"}"
-  speach="$(mktemp /tmp/output.XXXXXXXXXX).wav" 1>&- 2>&-
-  #pico2wave -w "${speach}" -l fr-FR "${text}" 1>&- 2>&-
-  espeak -v jbo "${text}" -w "${speach}"
-  play "${speach}" 1>&- 2>&-
-  rm "${speach}" 
-}
-
 
 # 
 #  ____                       _             
@@ -55,5 +48,6 @@
 # | (_| |  __/ |_) |  __/ | | | (_| |  __/ | | | (__| |  __/\__ \
 #  \__,_|\___| .__/ \___|_| |_|\__,_|\___|_| |_|\___|_|\___||___/
 #            |_|                                                 
-# 
+
 source "${MAIN_DIR}/.diary${FUNCTIONS}"
+source "${MAIN_DIR}/.text2speech${FUNCTIONS}"
