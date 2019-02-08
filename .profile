@@ -19,8 +19,7 @@ UNLOCKED=".unlocked"
 #                                  
 #
 
-MEGA=~/MEGA
-MAIN_DIR="${MEGA}"
+MAIN_DIR="${REPOSITORIES}/profile"
 ASCII_ART_DIR="${MAIN_DIR}/asciiart"
 FACIAL_EXPRESSION="${MAIN_DIR}/pictures/facial_expressions"
 DIARY_DIR="${MAIN_DIR}/diary"
@@ -52,7 +51,7 @@ MAIN_FUNCTIONS="${MAIN_DIR}/${FUNCTIONS}"
 # 
 
 README_TEMPLATE="https://raw.githubusercontent.com/Phreno/template/master/adoc/template.adoc"
-REPOSITORIES="/home/phreno/Dépôts"
+# REPOSITORIES="/home/phreno/Dépôts"
 SANDBOX="${REPOSITORIES}/sandbox"
 
 # 
@@ -81,5 +80,5 @@ source "${MAIN_FUNCTIONS}"
 #    #  #    # #   ## 
 #     #  ####  #    # 
                      
-compton --opacity-rule 85:'class_g *= "X-terminal-emulator"'&
+# compton --opacity-rule 85:'class_g *= "X-terminal-emulator"'&
 
