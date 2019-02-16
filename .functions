@@ -32,7 +32,8 @@
   text="${1?"Pas de texte en entrée"}"
   from="${2:="fr"}"
   dest="${3:="eng"}"
-  wget "https://glosbe.com/gapi/tm?from=${from}&dest=${dest}&format=json&phrase=${text}&page=1&pretty=true" -q -O - | jsonlint
+  page="${4:="1"}"
+  wget "https://glosbe.com/gapi/tm?from=${from}&dest=${dest}&format=json&phrase=${text}&page=${page}&pretty=true" -q -O -
 }
 
 # 

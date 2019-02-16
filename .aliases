@@ -9,10 +9,12 @@
 
 alias cm='cd "${MAIN_DIR}"'
 alias smp='source "${MAIN_PROFILE}"'
+alias v='vim'
 alias vmp='vim "${MAIN_PROFILE}" && smp'
 alias vma='vim "${MAIN_ALIASES}" && smp'
 alias vmf='vim "${MAIN_FUNCTIONS}" && smp'
 alias vmg='vim "${MAIN_DIR}/.gitignore"'
+alias vvp='vim "${HOME}/.vim_runtime/my_configs.vim"'
 
 # 
 #  ____            _                                                      _     
